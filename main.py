@@ -6,6 +6,7 @@ import pandas as pd
 @st.cache_data
 def load_data(file_path):
     df = pd.read_csv(file_path)
+    df['ano'] = pd.to_numeric(df['ano'], errors='coerce').fillna(0).astype(int)
     return df
 
 
@@ -54,24 +55,23 @@ def sidebar_filters(df):
 
 # Display charts and data
 def display_data(df):
-    st.title("Dashboard")
-    st.write("Filtered data from the CSV file")
+    st.title("CheerBoard")
 
     st.dataframe(df)  # Show filtered data
 
-    st.subheader("Number of events by Campeonato")
+    st.subheader("Times por Campeonato")
     campeonatos_count = df['Campeonato'].value_counts()
     st.bar_chart(campeonatos_count)
 
-    st.subheader("Number of events by Year")
+    st.subheader("Rotinas apresentadas por ano")
     Anos_count = df['Ano'].value_counts()
     st.line_chart(Anos_count)
 
-    st.subheader("Number of events by Ginásio")
+    st.subheader("Medalhas por Ginásio")
     Ginásio_count = df['Ginásio'].value_counts()
     st.bar_chart(Ginásio_count)
 
-    st.subheader("Number of events by Categoria")
+    st.subheader("Participantes por Categoria")
     Categoria_count = df['Categoria'].value_counts()
     st.bar_chart(Categoria_count)
 
