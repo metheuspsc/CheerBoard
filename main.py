@@ -6,7 +6,7 @@ import pandas as pd
 @st.cache_data
 def load_data(file_path):
     df = pd.read_csv(file_path)
-    df['ano'] = pd.to_numeric(df['ano'], errors='coerce').fillna(0).astype(int)
+    df['Ano'] = pd.to_numeric(df['Ano'], errors='coerce').fillna(0).astype(int)
     return df
 
 
