@@ -61,7 +61,7 @@ def display_data(df):
 
     st.subheader("Times por Campeonato")
     campeonatos_count = df['Campeonato'].value_counts()
-    st.bar_chart(x= df["Campeonato"],y=campeonatos_count)
+    st.bar_chart(x= "Campeonato",y=campeonatos_count)
 
     st.subheader("Rotinas apresentadas por ano")
     Anos_count = df['Ano'].value_counts()
