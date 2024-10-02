@@ -57,7 +57,7 @@ def sidebar_filters(df):
 def display_data(df):
     st.title("CheerBoard")
 
-    st.dataframe(df)  # Show filtered data
+    st.dataframe(df.style.format(thousands=''))  # Show filtered data
 
     st.subheader("Times por Campeonato")
     campeonatos_count = df['Campeonato'].value_counts()
